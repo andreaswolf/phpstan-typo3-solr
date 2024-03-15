@@ -42,6 +42,6 @@
         "cs:check": "ecs --config=.build/ecs.php",
         "cs:fix": "ecs --config=.build/ecs.php --fix",
         "phpstan": "phpstan",
-        "test": "phpunit"
+        "test": "phpunit tests/"
     }
 }
