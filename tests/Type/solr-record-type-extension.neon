@@ -1,0 +1,25 @@
+services:
+    -
+        class: a9f\PhpstanTypo3Solr\Type\SolrDocumentTypeResolverExtension
+        arguments:
+            solrRecordTypes: %solr.recordTypes%
+        tags:
+            - phpstan.phpDoc.typeNodeResolverExtension
+    -
+        class: a9f\PhpstanTypo3Solr\Type\SolrRecordDynamicReturnTypeExtension
+        tags:
+            - phpstan.broker.dynamicMethodReturnTypeExtension
+
+parameters:
+    solr:
+        recordTypes:
+            fe_users:
+                - foo_stringS
+                - bar_intM
+                - baz_boolS
+            single_field_type:
+                - something_stringS
+parametersSchema:
+    solr: structure([
+        recordTypes: arrayOf(arrayOf(string(), int()), string())
+    ])
