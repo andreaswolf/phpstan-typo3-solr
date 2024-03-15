@@ -1,0 +1,40 @@
+name: "Code style & tests"
+on:
+  pull_request:
+    # Run this workflow for all PRs against main
+    branches:
+      - main
+
+jobs:
+  php-check:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        composer-command:
+          - name: PHP Code Style
+            command: 'cs:check'
+          - name: Composer normalize
+            command: 'normalize --dry-run'
+          - name: PHPStan
+            command: phpstan
+          - name: PHPUnit
+            command: test
+
+    name: ${{ matrix.composer-command.name }}
+
+    steps:
+      - name: Setup PHP with PECL extension
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+          extensions: intl
+
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Install composer dependencies
+        run: composer install
+
+      - name: 'Run check "${{ matrix.composer-command.name }}"'
+        run: composer ${{ matrix.composer-command.command }}
