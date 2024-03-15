@@ -1,9 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Solr;
 
-use ApacheSolrForTypo3\Solr\System\Solr\Document\Document;
 use a9f\PhpstanTypo3Solr\Type\SolrDocument;
+use ApacheSolrForTypo3\Solr\System\Solr\Document\Document;
 use function PHPStan\Testing\assertType;
 
 // normally, this $document would be returned from a query
