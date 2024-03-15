@@ -17,7 +17,8 @@
     },
     "require-dev": {
         "ergebnis/composer-normalize": "^2.42",
-        "phpunit/phpunit": "^10.5"
+        "phpunit/phpunit": "^10.5",
+        "symplify/easy-coding-standard": "^12.1"
     },
     "autoload": {
         "psr-4": {
@@ -36,5 +37,11 @@
             "typo3/cms-composer-installers": true
         },
         "sort-packages": true
+    },
+    "scripts": {
+        "cs:check": "ecs --config=.build/ecs.php",
+        "cs:fix": "ecs --config=.build/ecs.php --fix",
+        "phpstan": "phpstan",
+        "test": "phpunit tests/"
     }
 }
