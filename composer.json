@@ -1,0 +1,40 @@
+{
+    "name": "a9f/phpstan-typo3-solr",
+    "description": "PHPStan extension for TYPO3 Solr",
+    "license": "MIT",
+    "type": "phpstan-extension",
+    "authors": [
+        {
+            "name": "Andreas Wolf",
+            "email": "dev@a-w.io"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "apache-solr-for-typo3/solr": "^12.0",
+        "phpstan/phpstan": "^1.10",
+        "typo3/cms-core": "^12.4"
+    },
+    "require-dev": {
+        "ergebnis/composer-normalize": "^2.42",
+        "phpunit/phpunit": "^10.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "a9f\\PhpstanTypo3Solr\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "a9f\\PhpstanTypo3Solr\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "ergebnis/composer-normalize": true,
+            "typo3/class-alias-loader": true,
+            "typo3/cms-composer-installers": true
+        },
+        "sort-packages": true
+    }
+}
